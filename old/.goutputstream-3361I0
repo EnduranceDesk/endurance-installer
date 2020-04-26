@@ -1,0 +1,10 @@
+#!/bin/bash
+clear
+PWD=$(pwd)
+echo $PWD
+#"$PWD/functions.sh"
+"$PWD/package_updater.sh"
+"$PWD/apache.sh"
+"$PWD/proftp.sh"
+"$PWD/php.sh"
+#"$PWD/uninstaller.sh"
