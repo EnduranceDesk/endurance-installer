@@ -3,7 +3,7 @@ echo "***************************************";
 echo "*        Building Endurance User      *"
 echo "***************************************";
 
-useradd -m endurance
+useradd -m endurance --home /home/endurance
 echo "Enter the password for endurance:"
 passwd endurance
 
