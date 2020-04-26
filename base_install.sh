@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-cd /etc/endurance/repo/EndurancePanel/endurance-installer
+cd /etc/endurance/repo/endurance-installer
 PWD=$(pwd)
 echo "***************************************";
 echo "*   INSTALLING BASE ENDURANCE PANEL   *"
@@ -25,11 +25,6 @@ systemctl restart httpd
 # systemctl restart httpd
 clear
 bash "$PWD/composer/install.sh"
-clear
-
-bash "/etc/endurance/repo/EndurancePanel/deploy_endurance.sh"
-bash "/etc/endurance/repo/EndurancePanel/deploy_rover.sh"
-
 echo "*********************************************";
 echo "*   BASE ENDURANCE INSTALLATION COMPLETED   *"
 echo "*********************************************"

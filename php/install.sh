@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-04-26 05:23:28
+# @Last Modified time: 2020-04-27 03:40:54
 clear
 echo "***************************************";
 echo "*   General CLI PHP FPM Installing    *"
@@ -121,14 +121,14 @@ mkdir -p /var/run/php
 mkdir -p /var/run/php/php72
 touch /var/run/php/php72/endurance.sock 
 chown apache.apache /var/run/php/php72/endurance.sock
-cp /etc/endurance/repo/EndurancePanel/endurance-installer/php/standby/endurance72.conf /etc/opt/remi/php72/php-fpm.d/endurance.conf
+cp /etc/endurance/repo/endurance-installer/php/standby/endurance72.conf /etc/opt/remi/php72/php-fpm.d/endurance.conf
 
 
 mkdir -p /var/run/php/php56
 touch /var/run/php/php56/endurance.sock 
 chown apache.apache /var/run/php/php56/endurance.sock
 
-cp /etc/endurance/repo/EndurancePanel/endurance-installer/php/standby/endurance56.conf /etc/opt/remi/php56/php-fpm.d/endurance.conf
+cp /etc/endurance/repo/endurance-installer/php/standby/endurance56.conf /etc/opt/remi/php56/php-fpm.d/endurance.conf
 
 systemctl restart  httpd php56-php-fpm php72-php-fpm
 

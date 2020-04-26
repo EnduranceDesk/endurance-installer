@@ -1,7 +1,7 @@
 # @Author: Nawaz Sarwar
 # @Date:   2020-04-08 15:36:44
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-04-26 05:51:47
+# @Last Modified time: 2020-04-27 03:39:37
 clear
 echo "***************************************";
 echo "*           Apache Installing         *"
@@ -31,17 +31,17 @@ chcon --type httpd_sys_rw_content_t /etc/endurance/configs/httpd/default.documen
 # mkdir /etc/endurance/configs/httpd/conf.d
 # mkdir /etc/endurance/configs/httpd/conf.modules.d
 
-cp -v /etc/endurance/repo/EndurancePanel/endurance-installer/httpd/standby/myhttpd.conf /etc/endurance/configs/httpd/conf/httpd.conf
-cp -v /etc/endurance/repo/EndurancePanel/endurance-installer/httpd/standby/mime.types /etc/endurance/configs/httpd/conf/mime.types
+cp -v /etc/endurance/repo/endurance-installer/httpd/standby/myhttpd.conf /etc/endurance/configs/httpd/conf/httpd.conf
+cp -v /etc/endurance/repo/endurance-installer/httpd/standby/mime.types /etc/endurance/configs/httpd/conf/mime.types
 
-cp -v /etc/endurance/repo/EndurancePanel/endurance-installer/httpd/standby/endurance_vhosts.conf /etc/endurance/configs/httpd/endurance_vhosts.conf
-cp -v /etc/endurance/repo/EndurancePanel/endurance-installer/httpd/standby/endurance_ssl_vhosts.conf /etc/endurance/configs/httpd/endurance_ssl_vhosts.conf
-cp -v /etc/endurance/repo/EndurancePanel/endurance-installer/httpd/standby/rover_vhosts.conf /etc/endurance/configs/httpd/rover_vhosts.conf
-cp -v /etc/endurance/repo/EndurancePanel/endurance-installer/httpd/standby/rover_ssl_vhosts.conf /etc/endurance/configs/httpd/rover_ssl_vhosts.conf
+cp -v /etc/endurance/repo/endurance-installer/httpd/standby/endurance_vhosts.conf /etc/endurance/configs/httpd/endurance_vhosts.conf
+cp -v /etc/endurance/repo/endurance-installer/httpd/standby/endurance_ssl_vhosts.conf /etc/endurance/configs/httpd/endurance_ssl_vhosts.conf
+cp -v /etc/endurance/repo/endurance-installer/httpd/standby/rover_vhosts.conf /etc/endurance/configs/httpd/rover_vhosts.conf
+cp -v /etc/endurance/repo/endurance-installer/httpd/standby/rover_ssl_vhosts.conf /etc/endurance/configs/httpd/rover_ssl_vhosts.conf
 # mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.backup
 
 # cp  -r -v standby/httpd.conf /etc/httpd/conf/httpd.conf
-cp  -r -v /etc/endurance/repo/EndurancePanel/endurance-installer/httpd/standby/index.html /etc/endurance/configs/httpd/default.document.root/html/index.html
+cp  -r -v /etc/endurance/repo/endurance-installer/httpd/standby/index.html /etc/endurance/configs/httpd/default.document.root/html/index.html
 
 
 chcon --type httpd_sys_rw_content_t /etc/endurance/configs/httpd/conf/*

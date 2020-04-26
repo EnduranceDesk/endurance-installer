@@ -12,6 +12,6 @@
 
 `cd /etc/endurance/repo`
 
-`git clone https://github.com/nawazsarwar/EndurancePanel`
+`git clone https://github.com/AdnanHussainTurki/endurance-installer`
 
-`bash /etc/endurance/repo/EndurancePanel/endurance-installer/base_install.sh`
+`bash /etc/endurance/repo/endurance-installer/base_install.sh`
