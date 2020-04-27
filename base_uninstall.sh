@@ -23,7 +23,7 @@ bash "$PWD/httpd/rollback.sh"
 bash "$PWD/php/rollback.sh"
 bash "$PWD/phpsu/rollback.sh"
 bash "$PWD/composer/rollback.sh"
-
+bash "$PWD/supervisor/rollback.sh"
 rm -rf /etc/endurance
 
 echo "*********************************************************************************************************************";

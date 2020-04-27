@@ -25,6 +25,10 @@ systemctl restart httpd
 # systemctl restart httpd
 clear
 bash "$PWD/composer/install.sh"
+clear
+bash "$PWD/supervisor/install.sh"
+clear
+bash "$PWD/endeavour/install.sh"
 echo "*********************************************";
 echo "*   BASE ENDURANCE INSTALLATION COMPLETED   *"
 echo "*********************************************"
