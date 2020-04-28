@@ -4,7 +4,8 @@ echo "*        Building Endurance User      *"
 echo "***************************************";
 mkdir /home/endurance
 chmod 711 /home/endurance
-useradd -m endurance --home /home/endurance
+useradd -m -k -s endurance --home /home/endurance --base-dir /home/endurance  --skel /home/endurance
+cp -v /etc/skel/.bash* /home/endurance/
 echo "Enter the password for endurance:"
 passwd endurance
 if [ $? -eq 0 ]; then
