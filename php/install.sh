@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-05-27 23:05:08
+# @Last Modified time: 2020-05-27 23:27:26
 clear
 echo "***************************************";
 echo "*   General CLI PHP FPM Installing    *"
@@ -107,14 +107,14 @@ echo "***************************************";
 
 clear
 
-# echo "***************************************";
-# echo "*      Installing General CLI PHP     *"
-# echo "***************************************";
-# yum -y install php php-opcache
-# yum -y install php-cli php-zip php-json php-mbstring php-gettext php-xml php-bcmath php-dba php-dbg php-mysqlnd php-odbc php-gd php-pdo php-gmp php-opcache php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel
-# echo "***************************************";
-# echo "*      General CLI PHP Installed      *"
-# echo "***************************************";
+echo "***************************************";
+echo "*      Installing General CLI PHP     *"
+echo "***************************************";
+yum -y install php php-opcache
+yum -y install php-cli php-zip php-json php-mbstring php-gettext php-xml php-bcmath php-dba php-dbg php-mysqlnd php-odbc php-gd php-pdo php-gmp php-opcache php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel
+echo "***************************************";
+echo "*      General CLI PHP Installed      *"
+echo "***************************************";
 
 mkdir -p /etc/endurance/configs/php
 
