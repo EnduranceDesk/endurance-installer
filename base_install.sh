@@ -19,6 +19,8 @@ bash "$PWD/misc/endurance_database/install.sh"
 clear
 bash "$PWD/httpd/install.sh"
 clear
+bash "$PWD/mysql/install.sh"
+clear
 bash "$PWD/php/install.sh"
 systemctl restart httpd
 # bash "$PWD/phpsu/install.sh"
