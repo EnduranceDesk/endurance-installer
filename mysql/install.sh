@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-05-27 23:58:40
+# @Last Modified time: 2020-05-27 23:59:49
 clear
 echo "***************************************";
 echo "*           MySQL Installing           *"
@@ -17,7 +17,7 @@ mysql_secure_installation
 
 mysql -u root -p
 GRANT ALL PRIVILEGES ON *.* TO 'endurance'@'localhost' IDENTIFIED BY 'Endurance!@#';
-mysql -u endurance -p
+mysql -u endurance -p Endurance!@#
 CREATE DATABASE endurance;
 
 
