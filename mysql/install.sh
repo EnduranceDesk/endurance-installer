@@ -1,13 +1,15 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-05-28 00:32:56
+# @Last Modified time: 2020-05-28 01:01:18
 clear
 echo "***************************************";
 echo "*           MySQL Installing           *"
 echo "***************************************";
 
 dnf -y install mysql-server
+
+firewall-cmd --permanent --add-port=3306/tcp
 
 systemctl start mysqld.service
 systemctl is-active --quiet mysql-server && echo MySQL is running.

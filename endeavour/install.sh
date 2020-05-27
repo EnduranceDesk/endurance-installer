@@ -9,7 +9,7 @@ git clone https://github.com/AdnanHussainTurki/endeavour
 
 rm -rf /etc/endurance/current/endeavour
 mkdir -p /etc/endurance/current/endeavour
-cp -rf /etc/endurance/repo/endeavour/* /etc/endurance/current/endeavour
+yes | cp -rf  /etc/endurance/repo/endeavour/{.,}* /etc/endurance/current/endeavour/
 
 cd /etc/endurance/current/endeavour
 sh deploy.sh
