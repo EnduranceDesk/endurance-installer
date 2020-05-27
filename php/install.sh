@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-04-27 03:40:54
+# @Last Modified time: 2020-04-30 09:59:32
 clear
 echo "***************************************";
 echo "*   General CLI PHP FPM Installing    *"
@@ -116,19 +116,24 @@ echo "***************************************";
 echo "*      General CLI PHP Installed      *"
 echo "***************************************";
 
-mkdir -p /var/run/php
+mkdir -p /etc/endurance/configs/php
 
-mkdir -p /var/run/php/php72
-touch /var/run/php/php72/endurance.sock 
-chown apache.apache /var/run/php/php72/endurance.sock
+mkdir -p /etc/endurance/configs/php/php72
+chown apache.apache /etc/endurance/configs/php/php72
 cp /etc/endurance/repo/endurance-installer/php/standby/endurance72.conf /etc/opt/remi/php72/php-fpm.d/endurance.conf
 
 
-mkdir -p /var/run/php/php56
-touch /var/run/php/php56/endurance.sock 
-chown apache.apache /var/run/php/php56/endurance.sock
-
+mkdir -p /etc/endurance/configs/php/php56
+chown apache.apache /etc/endurance/configs/php/php56
 cp /etc/endurance/repo/endurance-installer/php/standby/endurance56.conf /etc/opt/remi/php56/php-fpm.d/endurance.conf
+
+
+semanage fcontext -at httpd_sys_rw_content_t "/etc/endurance/configs/php(/.*)?"
+restorecon -R -v '/etc/endurance/configs/php' 
+
 
 systemctl restart  httpd php56-php-fpm php72-php-fpm
 
+ausearch -c 'php-fpm' --raw | audit2allow -M my-phpfpm
+semodule -i my-phpfpm.pp
+rm -rf my-phpfpm.*
