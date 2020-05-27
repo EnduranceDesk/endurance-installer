@@ -7,6 +7,7 @@ echo "*   INSTALLING BASE ENDURANCE PANEL   *"
 echo "***************************************"
 echo "CURRENT DIRECTORY: $PWD" 
 
+setenforce 0
 
 bash "$PWD/misc/package_updater/install.sh"
 bash "$PWD/wget/install.sh"
