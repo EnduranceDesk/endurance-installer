@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-05-28 01:40:21
+# @Last Modified time: 2020-05-28 02:02:13
 clear
 echo "***************************************";
 echo "*           MySQL Installing           *"
@@ -20,8 +20,10 @@ mysql_secure_installation
 echo "Enter root MySQL password:"
 mysql -u root -p << EOF
 CREATE DATABASE endurance;
-CREATE USER endurance@localhost IDENTIFIED BY endurancekapassword;
-GRANT ALL PRIVILEGES ON endurance.* TO endurance@localhost;
+CREATE USER 'endurance'@'localhost' IDENTIFIED BY 'endurancekapassword';
+CREATE USER 'endurance'@'%' IDENTIFIED BY 'endurancekapassword';
+GRANT ALL PRIVILEGES ON `endurance`.`*` TO `endurance` @`localhost`;
+GRANT ALL PRIVILEGES ON `endurance`.`*` TO `endurance` @`%`;
 EOF
 
 

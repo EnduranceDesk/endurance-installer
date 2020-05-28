@@ -27,6 +27,8 @@ systemctl restart httpd
 # bash "$PWD/phpsu/install.sh"
 # systemctl restart httpd
 clear
+bash "$PWD/phpMyAdmin/install.sh"
+clear
 bash "$PWD/composer/install.sh"
 clear
 bash "$PWD/supervisor/install.sh"
