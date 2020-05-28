@@ -1,22 +1,27 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-05-27 23:56:20
+# @Last Modified time: 2020-05-28 12:28:46
 clear
 echo "***************************************";
-echo "*          MySQL Uninstalling           *"
+echo "*          DNS Uninstalling           *"
 echo "***************************************";
 
-dnf -y install mysql-server
+systemctl stop named
+systemctl is-active --quiet named && echo Bind is still running.
 
-systemctl start mysqld.service
-systemctl is-active --quiet mysql-server && echo MySQL is running.
-sudo systemctl enable mysqld
+echo "Uninstalling Named"
+yum remove bind bind-utils -y
 
-mysql_secure_installation
+echo "Removing Bind ports from firewall"
+firewall-cmd --permanent --remove-port=53/tcp
+firewall-cmd --permanent --remove-port=53/udp
+firewall-cmd --reload
+firewall-cmd --zone=public --remove-service=dns --permanent
 
+rm -rf /etc/endurance/configs/bind
 
 
 echo "***************************************";
-echo "*          MySQL Uninstalled           *"
+echo "*          DNS   Uninstalled           *"
 echo "***************************************";
