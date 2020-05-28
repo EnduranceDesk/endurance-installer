@@ -37,3 +37,5 @@ bash "$PWD/endeavour/install.sh"
 echo "*********************************************";
 echo "*   BASE ENDURANCE INSTALLATION COMPLETED   *"
 echo "*********************************************"
+echo "Rebooting in 5 seconds"
+sleep 5 ; reboot
