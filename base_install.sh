@@ -7,7 +7,10 @@ echo "*   INSTALLING BASE ENDURANCE PANEL   *"
 echo "***************************************"
 echo "CURRENT DIRECTORY: $PWD" 
 
-setenforce 0
+cat > /etc/sysconfig/selinux << EOF
+SELINUX=disabled
+SELINUXTYPE=targeted
+EOF
 
 bash "$PWD/misc/package_updater/install.sh"
 bash "$PWD/wget/install.sh"
