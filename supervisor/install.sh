@@ -6,8 +6,8 @@ yum -y install supervisor
 mkdir -p /etc/supervisor.d
 mkdir -p /etc/endurance/current/endeavour.supervisor.log
 touch /etc/endurance/current/endeavour.supervisor.log/worker.log
-touch /etc/supervisor.d/endeavour.ini
-cat > /etc/supervisor.d/endeavour.ini << EOF
+touch /etc/supervisord.d/endeavour.ini
+cat > /etc/supervisord.d/endeavour.ini << EOF
 [program:endeavour-worker]
 process_name=%(program_name)s_%(process_num)02d
 command=php /etc/endurance/current/endeavour/artisan queue:work  --tries=1

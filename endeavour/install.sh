@@ -2,6 +2,7 @@ echo "***************************************";
 echo "*        INSTALLING ENDEAVOUR         *"
 echo "***************************************"
 
+
 mkdir -p /etc/endurance/repo
 cd /etc/endurance/repo
 

@@ -34,6 +34,8 @@ bash "$PWD/phpMyAdmin/install.sh"
 clear
 bash "$PWD/bind/install.sh"
 clear
+bash "$PWD/cron/install.sh"
+clear
 bash "$PWD/composer/install.sh"
 clear
 bash "$PWD/supervisor/install.sh"

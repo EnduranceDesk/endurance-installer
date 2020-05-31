@@ -1,0 +1,2 @@
+supervisord
+supervisorctl status
