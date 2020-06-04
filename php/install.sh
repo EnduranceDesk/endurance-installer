@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-06-04 20:24:53
+# @Last Modified time: 2020-06-04 20:58:35
 clear
 echo "***************************************";
 echo "*   General CLI PHP FPM Installing    *"

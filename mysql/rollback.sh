@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-05-28 12:28:46
+# @Last Modified time: 2020-06-04 20:57:16
 clear
 echo "***************************************";
 echo "*          DNS Uninstalling           *"

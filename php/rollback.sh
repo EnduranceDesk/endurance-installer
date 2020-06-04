@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-04-24 01:57:01
+# @Last Modified time: 2020-06-04 20:58:40
 echo "Removing PHP"
 dnf -y remove https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 rpm -qa | grep epel
