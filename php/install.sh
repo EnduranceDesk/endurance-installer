@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-05-27 23:27:26
+# @Last Modified time: 2020-06-04 20:24:53
 clear
 echo "***************************************";
 echo "*   General CLI PHP FPM Installing    *"
@@ -23,54 +23,6 @@ yum -y install php56-php-cli php56-php-common  php56-php-opcache php56-php-zip p
 yum -y install php72-php-cli php72-php-common  php72-php-opcache php72-php-zip php72-php-json php72-php-mbstring php72-php-gettext php72-php-xml php72-php-bcmath php72-php-dba php72-php-dbg php72-php-mysqlnd php72-php-odbc php72-php-gd php72-php-pdo php72-php-gmp php72-php-gd php72-php-ldap php72-php-odbc php72-php-pear php72-php-xml php72-php-xmlrpc php72-php-mbstring php72-php-soap curl curl-devel
 echo "PHP Installed"
 
-# echo "Allowing apache to use intra-network connections"
-# setsebool -P httpd_can_network_connect 1
-# echo "Apache allowed to use intra-network connections"
-
-# echo "Alloting port 9002 and 9003 for php56 and php72 respectively"
-# semanage port -a -t http_port_t -p tcp 9002
-# semanage port -a -t http_port_t -p tcp 9003
-# echo "Alloted"
-
-
-echo "Configuring PHP FPM for PHP 5.6"
-mkdir -p /var/www/cgi-bin/
-mkdir -p /var/www/cgi-bin/endurance
-chown endurance.endurance /var/www/cgi-bin/endurance
-chown endurance.endurance /var/www/cgi-bin/endurance/*
-
-#echo "user = nobody" >>  /etc/opt/remi/php72/php-fpm.d/www.conf
-#echo "group = nobody" >>  /etc/opt/remi/php72/php-fpm.d/www.conf
-#echo "listen = 127.0.0.1:2" >>  /etc/opt/remi/php72/php-fpm.d/www.conf
-#sed -i 's+SetHandler "proxy:unix:/var/opt/remi/php56/run/php-fpm/www.sock|fcgi://localhost"+SetHandler "proxy:fcgi://127.0.0.1:9002"+g' /etc/endurance/configs/httpd/conf.d/php56-php.conf
-#systemctl restart php56-php-fpm
-
-touch /var/www/cgi-bin/endurance/php56.fcgi
-cat > /var/www/cgi-bin/endurance/php56.fcgi << EOF
-#!/bin/bash
-exec /bin/php56-cgi
-EOF
-chmod 755 /var/www/cgi-bin/endurance/php56.fcgi
-echo "PHP FPM Configured for PHP 5.6"
-
-echo "Configuring PHP FPM for PHP 7.2"
-#echo "user = nobody" >>  /etc/opt/remi/php72/php-fpm.d/www.conf
-#echo "group = nobody" >>  /etc/opt/remi/php72/php-fpm.d/www.conf
-#echo "listen = 127.0.0.1:9003" >>  /etc/opt/remi/php72/php-fpm.d/www.conf
-#sed -i 's+SetHandler "proxy:unix:/var/opt/remi/php72/run/php-fpm/www.sock|fcgi://localhost"+SetHandler "proxy:fcgi://127.0.0.1:9003"+g' /etc/endurance/configs/httpd/conf.d/php72-php.conf
-#systemctl restart php72-php-fpm
-
-
-touch /var/www/cgi-bin/endurance/php72.fcgi
-cat > /var/www/cgi-bin/endurance/php72.fcgi << EOF
-#!/bin/bash
-exec /bin/php72-cgi
-EOF
-chmod 755 /var/www/cgi-bin/endurance/php72.fcgi
-
-
-# mv /etc/endurance/configs/httpd/conf.d/php72-php.conf /etc/endurance/configs/httpd/conf.d/php72-php.confd
-echo "PHP FPM Configured for PHP 7.2"
 
 
 echo "Turn off apache security2_module"
@@ -79,15 +31,9 @@ sed -i 's+LoadModule security2_module modules/mod_security2.so+#LoadModule secur
 echo "security2_module turned off"
 
 
-# echo "Making aggregated php configuration file"
-# cat > /etc/httpd/conf.d/php.conf << EOF
-# ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
-# AddHandler php56-fcgi .php
-# Action php56-fcgi /cgi-bin/php56.fcgi
-# Action php72-fcgi /cgi-bin/php72.fcgi
-
-# EOF
-# echo "Aggregated php configuration file built"
+echo "Allowing PHP7.2 to run as root"
+sed -i 's+--nodaemonize -R+--nodaemonize+g' /lib/systemd/system/php72-php-fpm.service
+echo "Allowed"
 
 
 echo "Enable home dir access through SELinux"
@@ -133,7 +79,3 @@ restorecon -R -v '/etc/endurance/configs/php'
 
 
 systemctl restart  httpd php56-php-fpm php72-php-fpm
-
-ausearch -c 'php-fpm' --raw | audit2allow -M my-phpfpm
-semodule -i my-phpfpm.pp
-rm -rf my-phpfpm.*
