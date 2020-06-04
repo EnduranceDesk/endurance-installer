@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-18 13:46:52
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-06-04 20:57:36
+# @Last Modified time: 2020-06-04 21:26:28
 
 clear
 echo "***************************************";
@@ -27,18 +27,16 @@ mkdir /etc/endurance/configs/bind
 mkdir /etc/endurance/configs/bind/zones
 cp  -r -v /etc/named.root.key /etc/endurance/configs/bind/named.root.key
 cp  -r -v /etc/named.rfc1912.zones /etc/endurance/configs/bind/named.rfc1912.zones
-mv /etc/named.conf /etc/named.conf.backup
-mv /etc/named.root.key /etc/named.root.key.backup
-mv /etc/named.rfc1912.zones /etc/named.rfc1912.zones.backup
 
-cp  -r -v includes/acl.conf /etc/endurance/configs/bind/acl.conf
-cp  -r -v includes/hint_zone.conf /etc/endurance/configs/bind/hint_zone.conf
-cp  -r -v includes/logging.conf /etc/endurance/configs/bind/logging.conf
-cp -r -v includes/options.conf /etc/endurance/configs/bind/options.conf
-cp  -r -v includes/mynamed.conf /etc/endurance/configs/bind/mynamed.conf
-cp  -r -v includes/zones.conf /etc/endurance/configs/bind/zones.conf
 
-cp --backup -r -v standby/named.conf /etc/named.conf
+cp  -r -v /etc/endurance/repo/endurance-installer/bind/includes/acl.conf /etc/endurance/configs/bind/acl.conf
+cp  -r -v /etc/endurance/repo/endurance-installer/bind/includes/hint_zone.conf /etc/endurance/configs/bind/hint_zone.conf
+cp  -r -v /etc/endurance/repo/endurance-installer/bind/includes/logging.conf /etc/endurance/configs/bind/logging.conf
+cp -r -v /etc/endurance/repo/endurance-installer/bind/includes/options.conf /etc/endurance/configs/bind/options.conf
+cp  -r -v /etc/endurance/repo/endurance-installer/bind/includes/mynamed.conf /etc/endurance/configs/bind/mynamed.conf
+cp  -r -v /etc/endurance/repo/endurance-installer/bind/includes/zones.conf /etc/endurance/configs/bind/zones.conf
+
+cp  -r -v /etc/endurance/repo/endurance-installer/bind/standby/named.conf /etc/named.conf
 
 
 # chroot 640 /etc/named.conf
