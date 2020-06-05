@@ -1,11 +1,9 @@
-clear
+pclear
 echo "***************************************";
 echo "*        Building Rover User          *"
 echo "***************************************";
-mkdir /home/rover
-chmod 711 /home/rover
-useradd -m -k -s rover --home /home/endurance --base-dir /home/rover  --skel /home/rover
-cp -v /etc/skel/.bash* /home/rover/
+
+/usr/sbin/useradd rover -d /home/rover  -m  
 echo "Enter the password for rover:"
 passwd rover
 if [ $? -eq 0 ]; then
