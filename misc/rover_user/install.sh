@@ -1,4 +1,4 @@
-pclear
+clear
 echo "***************************************";
 echo "*        Building Rover User          *"
 echo "***************************************";
@@ -11,7 +11,6 @@ if [ $? -eq 0 ]; then
 else
     exit 1
 fi
-chown rover.rover /home/rover
 
 echo "***************************************";
 echo "*         Endurance Rover Built        *"
