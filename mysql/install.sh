@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-06-04 20:58:19
+# @Last Modified time: 2020-06-04 22:26:34
 clear
 echo "***************************************";
 echo "*           MySQL Installing           *"
@@ -20,12 +20,18 @@ mysql_secure_installation
 echo "Enter root MySQL password:"
 mysql -u root -p << EOF
 CREATE DATABASE endurance;
+EOF
+echo "Enter root MySQL password again:"
+mysql -u root -p << EOF
 CREATE USER 'endurance_user'@'%' IDENTIFIED WITH mysql_native_password BY 'endurancekapassword';
 EOF
 
 echo "Enter root MySql password again:"
 mysql -u root -p << EOF
-GRANT ALL PRIVILEGES ON `endurance`.* TO 'endurance_user'@'%';
+GRANT ALL PRIVILEGES ON endurance.* TO 'endurance_user'@'%';
+EOF
+echo "Enter root MySql password again:"
+mysql -u root -p << EOF
 ALTER USER 'endurance_user'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 EOF
 

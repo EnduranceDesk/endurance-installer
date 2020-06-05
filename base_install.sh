@@ -17,6 +17,8 @@ bash "$PWD/wget/install.sh"
 clear
 bash "$PWD/misc/endurance_user/install.sh"
 clear
+bash "$PWD/misc/rover_user/install.sh"
+clear
 bash "$PWD/misc/folder_structure/install.sh"
 clear
 bash "$PWD/misc/endurance_database/install.sh"
@@ -39,6 +41,8 @@ clear
 bash "$PWD/composer/install.sh"
 clear
 bash "$PWD/supervisor/install.sh"
+clear
+bash "$PWD/node/install.sh"
 clear
 # bash "$PWD/endeavour/install.sh"
 echo "*********************************************";

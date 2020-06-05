@@ -21,6 +21,11 @@ echo "Moving Composer to /usr/local/bin/composer"
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 composer -V
+
+/bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+/sbin/mkswap /var/swap.1
+/sbin/swapon /var/swap.1
+
 echo "***************************************";
 echo "*          COMPOSER INSTALLED         *"
 echo "***************************************"

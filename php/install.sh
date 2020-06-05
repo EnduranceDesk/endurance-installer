@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-06-04 20:58:35
+# @Last Modified time: 2020-06-04 22:38:37
 clear
 echo "***************************************";
 echo "*   General CLI PHP FPM Installing    *"
@@ -32,7 +32,8 @@ echo "security2_module turned off"
 
 
 echo "Allowing PHP7.2 to run as root"
-sed -i 's+--nodaemonize -R+--nodaemonize+g' /lib/systemd/system/php72-php-fpm.service
+sed -i 's/--nodaemonize/--nodaemonize  -R/' /lib/systemd/system/php72-php-fpm.service
+systemctl daemon-reload
 echo "Allowed"
 
 
