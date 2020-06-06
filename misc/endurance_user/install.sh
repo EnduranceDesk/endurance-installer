@@ -11,6 +11,7 @@ if [ $? -eq 0 ]; then
 else
     exit 1
 fi
+chmod 711 /home/endurance
 
 
 echo "***************************************";

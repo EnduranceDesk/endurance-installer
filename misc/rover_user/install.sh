@@ -12,6 +12,9 @@ else
     exit 1
 fi
 
+chmod 711 /home/rover
+
+
 echo "***************************************";
 echo "*         Endurance Rover Built        *"
 echo "***************************************";
