@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-06-05 16:32:51
+# @Last Modified time: 2020-06-07 22:29:16
 clear
 echo "***************************************";
 echo "*   General CLI PHP FPM Installing    *"
@@ -77,6 +77,11 @@ cp /etc/endurance/repo/endurance-installer/php/standby/endurance56.conf /etc/opt
 mkdir -p /etc/endurance/configs/php/php72
 chown apache.apache /etc/endurance/configs/php/php72
 cp /etc/endurance/repo/endurance-installer/php/standby/rover72.conf /etc/opt/remi/php72/php-fpm.d/rover.conf
+
+mkdir -p /etc/endurance/configs/php/php72
+chown apache.apache /etc/endurance/configs/php/php72
+cp /etc/endurance/repo/endurance-installer/php/standby/endeavour72.conf /etc/opt/remi/php72/php-fpm.d/endeavour.conf
+
 
 
 semanage fcontext -at httpd_sys_rw_content_t "/etc/endurance/configs/php(/.*)?"

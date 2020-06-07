@@ -1,7 +1,7 @@
 # @Author: Nawaz Sarwar
 # @Date:   2020-04-08 15:36:44
 # @Last Modified by:   Adnan
-# @Last Modified time: 2020-06-04 20:58:11
+# @Last Modified time: 2020-06-07 22:26:52
 clear
 echo "***************************************";
 echo "*           Apache Installing         *"
@@ -34,6 +34,8 @@ chcon --type httpd_sys_rw_content_t /etc/endurance/configs/httpd/default.documen
 cp -v /etc/endurance/repo/endurance-installer/httpd/standby/myhttpd.conf /etc/endurance/configs/httpd/conf/httpd.conf
 cp -v /etc/endurance/repo/endurance-installer/httpd/standby/mime.types /etc/endurance/configs/httpd/conf/mime.types
 
+cp -v /etc/endurance/repo/endurance-installer/httpd/standby/endeavour_vhosts.conf /etc/endurance/configs/httpd/endeavour_vhosts.conf
+cp -v /etc/endurance/repo/endurance-installer/httpd/standby/endeavour_ssl_vhosts.conf /etc/endurance/configs/httpd/endeavour_ssl_vhosts.conf
 cp -v /etc/endurance/repo/endurance-installer/httpd/standby/endurance_vhosts.conf /etc/endurance/configs/httpd/endurance_vhosts.conf
 cp -v /etc/endurance/repo/endurance-installer/httpd/standby/endurance_ssl_vhosts.conf /etc/endurance/configs/httpd/endurance_ssl_vhosts.conf
 cp -v /etc/endurance/repo/endurance-installer/httpd/standby/rover_vhosts.conf /etc/endurance/configs/httpd/rover_vhosts.conf
@@ -82,6 +84,13 @@ firewall-cmd --permanent --add-port=443/tcp
 
 semanage port -a -t http_port_t -p tcp 80
 semanage port -a -t http_port_t -p tcp 443
+
+#Endurance 
+firewall-cmd --permanent --add-port=1021/tcp
+firewall-cmd --permanent --add-port=1022/tcp
+
+semanage port -a -t http_port_t -p tcp 1021
+semanage port -a -t http_port_t -p tcp 1022
 
 #Endurance 
 firewall-cmd --permanent --add-port=1023/tcp
