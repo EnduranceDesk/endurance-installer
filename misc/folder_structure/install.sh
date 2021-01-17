@@ -6,7 +6,7 @@ mkdir -p /etc/endurance/repo
 mkdir -p /etc/endurance/current
 mkdir -p /etc/endurance/configs
 mkdir -p /etc/endurance/configs/server
-
+mkdir -p /etc/endurance/credentials
 
 
 # rm -rf /home/endurance
