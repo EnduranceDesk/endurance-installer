@@ -21,6 +21,8 @@ bash "$PWD/misc/rover_user/install.sh"
 clear
 bash "$PWD/misc/folder_structure/install.sh"
 clear
+bash "$PWD/misc/hostname/install.sh"
+clear
 bash "$PWD/misc/endurance_database/install.sh"
 clear
 bash "$PWD/httpd/install.sh"
@@ -37,6 +39,8 @@ clear
 bash "$PWD/bind/install.sh"
 clear
 bash "$PWD/cron/install.sh"
+clear
+bash "$PWD/acme/install.sh"
 clear
 bash "$PWD/composer/install.sh"
 clear

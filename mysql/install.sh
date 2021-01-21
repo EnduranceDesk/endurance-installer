@@ -1,7 +1,7 @@
 # @Author: Adnan
 # @Date:   2020-04-21 14:32:38
 # @Last Modified by:   Adnan
-# @Last Modified time: 2021-01-17 20:22:47
+# @Last Modified time: 2021-01-18 01:06:18
 clear
 echo "***************************************";
 echo "*           MySQL Installing           *"
@@ -30,7 +30,9 @@ EOF
 MYSQL_ENDURANCE_PASS=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '')
 echo -e $MYSQL_ENDURANCE_PASS  | tr -d '\n' > /etc/endurance/credentials/mysql.endurance
 echo -e $MYSQL_ENDURANCE_PASS  | tr -d '\n' > /home/endurance/mysql.endurance
+echo -e $MYSQL_ENDURANCE_PASS  | tr -d '\n' > /home/rover/mysql.endurance
 chown -R endurance:endurance /home/endurance/mysql.endurance
+chown -R rover:rover /home/rover/mysql.endurance
 
 mysql -u root -p"$MYSQLPASS" << EOF
 CREATE USER 'endurance_user'@'%' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ENDURANCE_PASS';

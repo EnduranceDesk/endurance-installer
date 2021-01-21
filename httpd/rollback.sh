@@ -31,6 +31,7 @@ firewall-cmd --zone=public --remove-service=https --permanent
 firewall-cmd --reload
 
 rm -rf /etc/endurance/configs/httpd
+rm -rf /etc/endurance/configs/apollo
+rm -rf /etc/endurance/configs/discovery
 rm -rf /etc/httpd
-
 echo "HTTPD REMOVED"
