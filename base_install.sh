@@ -30,9 +30,6 @@ clear
 bash "$PWD/mysql/install.sh"
 clear
 bash "$PWD/php/install.sh"
-systemctl restart httpd
-# bash "$PWD/phpsu/install.sh"
-# systemctl restart httpd
 clear
 bash "$PWD/phpMyAdmin/install.sh"
 clear
@@ -42,13 +39,14 @@ bash "$PWD/cron/install.sh"
 clear
 bash "$PWD/acme/install.sh"
 clear
+bash "$PWD/dkim/install.sh"
+clear
 bash "$PWD/composer/install.sh"
 clear
 bash "$PWD/supervisor/install.sh"
 clear
 bash "$PWD/node/install.sh"
 clear
-# bash "$PWD/endeavour/install.sh"
 echo "*********************************************";
 echo "*   BASE ENDURANCE INSTALLATION COMPLETED   *"
 echo "*********************************************"
