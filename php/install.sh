@@ -7,8 +7,8 @@ echo "***************************************";
 echo "*   General CLI PHP FPM Installing    *"
 echo "***************************************";
 
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
-yum install http://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
+yum install http://rpms.remirepo.net/enterprise/remi-release-9.rpm -y
 yum install yum-utils -y
 yum install php56 php72 php73 php74 php80 -y
 yum install php56-php-fpm php72-php-fpm php73-php-fpm php74-php-fpm php80-php-fpm -y
