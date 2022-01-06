@@ -24,6 +24,7 @@ bash "$PWD/php/rollback.sh"
 bash "$PWD/phpsu/rollback.sh"
 bash "$PWD/composer/rollback.sh"
 bash "$PWD/supervisor/rollback.sh"
+bash "$PWD/python/rollback.sh"
 rm -rf /etc/endurance
 
 echo "*********************************************************************************************************************";

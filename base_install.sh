@@ -47,6 +47,8 @@ bash "$PWD/supervisor/install.sh"
 clear
 bash "$PWD/node/install.sh"
 clear
+bash "$PWD/python/install.sh"
+clear
 echo "*********************************************";
 echo "*   BASE ENDURANCE INSTALLATION COMPLETED   *"
 echo "*********************************************"
