@@ -74,11 +74,11 @@ clear
 echo "***************************************";
 echo "*      Installing General CLI PHP     *"
 echo "***************************************";
-yum -y install php php-opcache
-yum -y install php-cli php-zip php-json php-mbstring php-gettext php-xml php-bcmath php-dba php-dbg php-mysqlnd php-odbc php-gd php-pdo php-gmp php-opcache php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel
 
 dnf -y module reset php
-dnf module install -y php:remi-8.0
+dnf module enable php:remi-8.0 -y
+yum -y install php php-opcache
+yum -y install php-cli php-zip php-json php-mbstring php-gettext php-xml php-bcmath php-dba php-dbg php-mysqlnd php-odbc php-gd php-pdo php-gmp php-opcache php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel
 
 echo "***************************************";
 echo "*      General CLI PHP Installed      *"
