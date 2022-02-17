@@ -41,6 +41,8 @@ bash "$PWD/acme/install.sh"
 clear
 bash "$PWD/dkim/install.sh"
 clear
+bash "$PWD/screen/install.sh"
+clear
 bash "$PWD/composer/install.sh"
 clear
 bash "$PWD/supervisor/install.sh"
