@@ -12,7 +12,7 @@ then
     exit 1
 fi
 
-php composer-setup.php --quiet
+php composer-setup.php --quiet --force
 RESULT=$?
 rm composer-setup.php
 echo $RESULT
