@@ -37,6 +37,7 @@ mkdir -p /etc/endurance/configs/apollo/apollo_log
 cp -rf /etc/endurance/repo/endurance-installer/httpd/standby/conf/apollo.conf /etc/endurance/configs/apollo/conf/httpd.conf
 cp -rf /etc/endurance/repo/endurance-installer/httpd/standby/mime.types /etc/endurance/configs/apollo/conf/mime.types
 
+mkdir -p /etc/endurance/configs/apollo/conf
 cp -v /etc/endurance/repo/endurance-installer/httpd/standby/vhosts/endeavour_vhosts.conf /etc/endurance/configs/apollo/endeavour_vhosts.conf
 cp -v /etc/endurance/repo/endurance-installer/httpd/standby/vhosts/endeavour_ssl_vhosts.conf /etc/endurance/configs/apollo/endeavour_ssl_vhosts.conf
 cp -v /etc/endurance/repo/endurance-installer/httpd/standby/vhosts/endurance_vhosts.conf /etc/endurance/configs/apollo/endurance_vhosts.conf
