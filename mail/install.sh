@@ -281,13 +281,14 @@ EOD
 
 
 # SSL
+hostname=$(hostname)
 mkdir -p /etc/endurance/configs/ssl/$hostname
-openssl genrsa -des3 --passout pass:1111 -out $hostname.key 2048
-openssl req -new -passin pass:1111 -key $hostname.key -subj "/C=GB/ST=London/L=London/O=Endurance Control Panel/OU=IT Department/CN=$hostname"  -out $hostname.csr
-openssl x509 -req --passin  pass:1111 -days 365 -in $hostname.csr -signkey $hostname.key -out $hostname.cer
-openssl rsa --passin pass:1111  -in $hostname.key -out $hostname.key.nopass
+openssl genrsa -des3 --passout pass:Endurance -out $hostname.key 2048
+openssl req -new -passin pass:Endurance -key $hostname.key -subj "/C=GB/ST=London/L=London/O=Endurance Control Panel/OU=IT Department/CN=$hostname"  -out $hostname.csr
+openssl x509 -req --passin  pass:Endurance -days 365 -in $hostname.csr -signkey $hostname.key -out $hostname.cer
+openssl rsa --passin pass:Endurance  -in $hostname.key -out $hostname.key.nopass
 mv -f $hostname.key.nopass $hostname.key
-openssl req -new -x509 -extensions v3_ca -passout pass:1111 -subj "/C=GB/ST=London/L=London/O=Endurance Control Panel/OU=IT Department/CN=$hostname"  -keyout cakey.pem -out cacert.pem -days 3650 
+openssl req -new -x509 -extensions v3_ca -passout pass:Endurance -subj "/C=GB/ST=London/L=London/O=Endurance Control Panel/OU=IT Department/CN=$hostname"  -keyout cakey.pem -out cacert.pem -days 3650 
 chmod 600 $hostname.key
 chmod 600 cakey.pem
 mv $hostname.key /etc/endurance/configs/ssl/$hostname
