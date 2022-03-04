@@ -25,7 +25,12 @@ clear
 bash "$PWD/wget/install.sh"
 clear
 bash "$PWD/misc/hostname/install.sh"
+exitcodeForHostname=$?
 clear
+if [ $exitcodeForHostname -eq 3 ]; then
+    echo "Error: Hostname is not pointed to this server. "
+    exit 3;
+fi
 bash "$PWD/misc/endurance_user/install.sh"
 clear
 bash "$PWD/misc/rover_user/install.sh"
@@ -52,6 +57,8 @@ clear
 bash "$PWD/dkim/install.sh"
 clear
 bash "$PWD/screen/install.sh"
+clear
+bash "$PWD/mail/install.sh"
 clear
 bash "$PWD/composer/install.sh"
 clear
