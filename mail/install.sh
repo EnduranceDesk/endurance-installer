@@ -281,17 +281,29 @@ EOD
 
 
 # SSL
+mkdir -p /etc/endurance/configs/ssl/$hostname
+openssl genrsa -des3 --passout pass:1111 -out $hostname.key 2048
+openssl req -new -passin pass:1111 -key $hostname.key -subj "/C=GB/ST=London/L=London/O=Endurance Control Panel/OU=IT Department/CN=$hostname"  -out $hostname.csr
+openssl x509 -req --passin  pass:1111 -days 365 -in $hostname.csr -signkey $hostname.key -out $hostname.cer
+openssl rsa --passin pass:1111  -in $hostname.key -out $hostname.key.nopass
+mv -f $hostname.key.nopass $hostname.key
+openssl req -new -x509 -extensions v3_ca -keyout cakey.pem -out cacert.pem -days 3650
+chmod 600 $hostname.key
+chmod 600 cakey.pem
+mv $hostname.key /etc/endurance/configs/ssl/$hostname
+mv $hostname.cer /etc/endurance/configs/ssl/$hostname
+mv cakey.pem /etc/endurance/configs/ssl/$hostname
+mv cacert.pem /etc/endurance/configs/ssl/$hostname
 
-sh /etc/endurance/executables/acme.sh/acme.sh --register-account -m admin@$hostname --issue --apache -d $hostname
-mkdir -p /etc/endurance/configs/ssl
-cp  -rf  /root/.acme.sh/$hostname   /etc/endurance/configs/ssl
-if [ -f "/etc/endurance/configs/ssl/$hostname/fullchain.cer" ]; then
+
+
+
 
 postconf -e "smtpd_use_tls = yes"
 postconf -e "smtpd_tls_auth_only = yes"
 postconf -e "smtp_tls_security_level = may"
 postconf -e "smtpd_tls_security_level = may"
-postconf -e "smtpd_tls_cert_file = /etc/endurance/configs/ssl/$hostname/fullchain.cer"
+postconf -e "smtpd_tls_cert_file = /etc/endurance/configs/ssl/$hostname/$hostname.cer"
 postconf -e "smtpd_tls_key_file = /etc/endurance/configs/ssl/$hostname/$hostname.key"
 postconf -e "smtpd_sasl_security_options = noanonymous, noplaintext"
 postconf -e "smtpd_sasl_tls_security_options = noanonymous"
@@ -300,7 +312,7 @@ postconf -e "tls_server_sni_maps = hash:/etc/postfix/vmail_ssl.map"
 
 
 cat >  /etc/postfix/vmail_ssl.map  << EOD
-$hostname /etc/endurance/configs/ssl/$hostname/$hostname.key /etc/endurance/configs/ssl/$hostname/fullchain.cer
+$hostname /etc/endurance/configs/ssl/$hostname/$hostname.key /etc/endurance/configs/ssl/$hostname/$hostname.cer
 
 EOD
 
@@ -521,7 +533,7 @@ EOF
 
 cat > /etc/dovecot/conf.d/10-ssl.conf << EOF
 ssl = required
-ssl_cert = </etc/endurance/configs/ssl/$hostname/fullchain.cer
+ssl_cert = </etc/endurance/configs/ssl/$hostname/$hostname.cer
 ssl_key = </etc/endurance/configs/ssl/$hostname/$hostname.key
 EOF
 
@@ -532,7 +544,6 @@ firewall-cmd --permanent --add-service=smtps
 firewall-cmd --permanent --add-service=pop3s
 firewall-cmd --reload
 
-fi
 
 
 # DKIM

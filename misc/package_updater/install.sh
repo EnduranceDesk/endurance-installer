@@ -17,5 +17,6 @@ systemctl enable firewalld
 echo "Firewall Installed"
 
 echo "Installing Network tools"
-dnf install bind-utils
+dnf install bind-utils -y
+yum install whois -y
 echo "Network tools installed"
