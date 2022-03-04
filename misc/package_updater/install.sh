@@ -15,3 +15,7 @@ yum -y install firewalld
 systemctl start firewalld
 systemctl enable firewalld
 echo "Firewall Installed"
+
+echo "Installing Network tools"
+dnf install bind-utils
+echo "Network tools installed"

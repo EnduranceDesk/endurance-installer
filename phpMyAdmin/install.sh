@@ -32,6 +32,22 @@ Alias /phpmyadmin /usr/share/phpmyadmin
 
 EOF
 
+cat > /etc/endurance/configs/discovery/conf.d/phpmyadmin.conf << EOF
+Alias /phpmyadmin /usr/share/phpmyadmin
+ 
+<Directory /usr/share/phpmyadmin/>
+   AddDefaultCharset UTF-8
+   <IfModule mod_authz_core.c>
+     # Apache 2.4
+     <RequireAny>
+      Require all granted
+     </RequireAny>
+   </IfModule>
+</Directory>
+ 
+
+EOF
+
 <FilesMatch ".php$"> 
        SetHandler "proxy:unix:/etc/endurance/configs/php/php80-endurance-fpm/endeavour.sock|fcgi://localhost/"          
 </FilesMatch>

@@ -13,13 +13,18 @@ SELINUXTYPE=targeted
 EOF
 
 chattr -V -i /etc/resolv.conf
-echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+cat > /etc/resolv.conf << EOF
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+EOF
 chattr -V +i /etc/resolv.conf
 
 
 bash "$PWD/misc/package_updater/install.sh"
+clear
 bash "$PWD/wget/install.sh"
+clear
+bash "$PWD/misc/hostname/install.sh"
 clear
 bash "$PWD/misc/endurance_user/install.sh"
 clear
@@ -27,7 +32,6 @@ bash "$PWD/misc/rover_user/install.sh"
 clear
 bash "$PWD/misc/folder_structure/install.sh"
 clear
-bash "$PWD/misc/hostname/install.sh"
 clear
 bash "$PWD/misc/endurance_database/install.sh"
 clear
