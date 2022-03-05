@@ -548,7 +548,7 @@ firewall-cmd --reload
 
 
 # DKIM
-yum install opendkim -y
+yum install opendkim opendkim-tools -y
 opendkim-default-keygen
 hostname=$(hostname)
 cat > /etc/opendkim.conf << EOF
