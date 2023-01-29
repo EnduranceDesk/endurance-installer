@@ -8,7 +8,8 @@ echo "*       phpMyAdmin Installing         *"
 echo "***************************************";
 
 yum -y install unzip
-wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-all-languages.zip
+# wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-all-languages.zip
+wget https://files.phpmyadmin.net/phpMyAdmin/5.2.0/phpMyAdmin-5.2.0-all-languages.zip
 unzip phpMyAdmin-5.0.1-all-languages.zip
 rm -rf phpMyAdmin-5.0.1-all-languages.zip
 mv phpMyAdmin-5.0.1-all-languages /usr/share/phpmyadmin
